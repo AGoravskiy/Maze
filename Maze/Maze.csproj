@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
-    <Compile Include="Entity.cs" />
-    <Compile Include="Maze.cs" />
+    <Compile Include="Model\Cell\Wall.cs" />
+    <Compile Include="Drawer.cs" />
+    <Compile Include="Model\Cell\AnyCell.cs" />
+    <Compile Include="Model\Cell\Ground.cs" />
+    <Compile Include="Model\Cell\Hero.cs" />
+    <Compile Include="Model\Maze.cs" />
     <Compile Include="MazeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

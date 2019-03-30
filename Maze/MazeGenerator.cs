@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Maze.Model.Cell;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,80 +7,111 @@ using System.Threading.Tasks;
 
 namespace Maze
 {
-    class MazeGenerator
+
+    public class MazeGenerator
     {
-        public string[,] GetMaze(string[,] maze)
+        private Maze maze;
+        private int Width { get; set; } 
+        private int Height { get; set; }
+        private AnyCell startCell;
+        private AnyCell currentCell;
+        private AnyCell neighbourCell;
+        private Stack<AnyCell> stackCells = new Stack<AnyCell>();
+        private static Random random = new Random();
+
+        public MazeGenerator() : this(11, 21)
         {
-            Cell startCell = new Cell(1, 1);
-            Cell currentCell = startCell;
-            Cell neighbourCell;
-            Stack<Cell> stackCells= new Stack<Cell>();
-            Random random = new Random();
-            int num = 20;
+        }
+
+        public MazeGenerator(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
+
+        internal Maze GetMaze()
+        {
+            
+            maze = new Maze(Width, Height);
+            startCell = maze.Cells.SingleOrDefault(x => (x.X == 1) && (x.Y == 1));
+            currentCell = startCell;
 
             do
             {
-                List<Cell> neighbours = GetNeighbours(startCell.Height, startCell.Width, maze, startCell, 2);
+                List<AnyCell> neighbours = GetNeighbours(maze, startCell, 2);
                 if (neighbours.Count != 0)
                 {
-                    neighbourCell = neighbours[random.Next(0, neighbours.Count - 1)];
+                    neighbourCell = neighbours[random.Next(0, neighbours.Count)];
                     stackCells.Push(currentCell);
                     maze = RemoveWall(currentCell, neighbourCell, maze);
                     currentCell = neighbourCell;
                     neighbourCell.Visited = true;
                 }
-                else
+                else if(stackCells.Count != 0)
                 {
                     startCell = stackCells.Pop();
                 }
-                num--;
+                else
+                {
+                    List<AnyCell> unvisitedCells = maze.Cells.Where(cell
+                        => (cell.Symbol == '.') && (!cell.Visited)).ToList<AnyCell>();
+                    startCell = unvisitedCells[random.Next(0, unvisitedCells.Count)];
+                    
+                }
             }
-            while (num > 0);
+            while (stackCells.Count != 0);
             return maze;
         }
         
         
 
-        public List<Cell> GetNeighbours(int width, int height, string[,] maze, Cell c, int distance)
+        private List<AnyCell> GetNeighbours(Maze maze, AnyCell c, int distance)
         {
             int i;
-            int x = c.Height;
-            int y = c.Width;
-            Cell up = new Cell(x, y - distance);
-            Cell rt = new Cell(x + distance, y);
-            Cell dw = new Cell(x, y + distance);
-            Cell lt = new Cell(x - distance, y);
-            Cell[] d = new Cell[] { dw, rt, up, lt };
-            List<Cell> cells = new List<Cell>();
+            int x = c.X;
+            int y = c.Y;
 
-            for (i = 0; i < 4; i++)
-            { //для каждого направдения
-                if (d[i].Width > 0 && d[i].Width < width && d[i].Height > 0 && d[i].Height < height)
-                { //если не выходит за границы лабиринта
-                    string mazeCellCurrent = maze[d[i].Height, d[i].Width];
-                    Cell cellCurrent = d[i];
-                    if (mazeCellCurrent != "#" && !d[i].Visited)
-                    { //и не посещена\является стеной
-                        cells.Add(cellCurrent); //записать в массив;
+            AnyCell up = maze.Cells.SingleOrDefault(cell => (cell.X == x) && (cell.Y == y - distance));
+            AnyCell rt = maze.Cells.SingleOrDefault(cell => (cell.X == x + distance) && (cell.Y == y));
+            AnyCell dw = maze.Cells.SingleOrDefault(cell => (cell.X == x) && (cell.Y == y + distance));
+            AnyCell lt = maze.Cells.SingleOrDefault(cell => (cell.X == x - distance) && (cell.Y == y));
+
+            AnyCell[] d = new AnyCell[] { dw, rt, up, lt };
+            List<AnyCell> cells = new List<AnyCell>();
+
+            for (i = 0; i < d.Length; i++)
+            {
+                
+                if (d[i] != null)
+                { 
+                    AnyCell mazeCellCurrent = maze.Cells.SingleOrDefault(cell 
+                        => (cell.X == d[i].X) && (cell.Y == d[i].Y));
+                    AnyCell cellCurrent = d[i];
+                    if (mazeCellCurrent.Symbol != '#' && !d[i].Visited)
+                    {
+                        cells.Add(cellCurrent);
                     }
                 }
             }
             return cells;
         }
 
-        public string[,] RemoveWall(Cell first, Cell second, string[,] maze)
+        private Maze RemoveWall(AnyCell first, AnyCell second, Maze maze)
         {
-            int xDiff = second.Height - first.Height;
-            int yDiff = second.Width - first.Width;
+            int xDiff = second.X - first.X;
+            int yDiff = second.Y - first.Y;
             int addX, addY;
 
 
             addX = (xDiff != 0) ? (xDiff / Math.Abs(xDiff)) : 0;
             addY = (yDiff != 0) ? (yDiff / Math.Abs(yDiff)) : 0;
-            Cell target = new Cell(first.Height + addX, first.Width + addY);
-
-            maze[target.Height, target.Width] = ".";
-            target.Visited = true;
+            AnyCell target = maze.Cells.SingleOrDefault(cell
+                        => (cell.X == first.X + addX) && (cell.Y == first.Y + addY));
+            AnyCell cellWall = target;
+            cellWall = new Ground(target.X, target.Y);
+            maze.Cells.Remove(target);
+            maze.Cells.Add(cellWall);
+            cellWall.Visited = true;
             return maze;
         }
 

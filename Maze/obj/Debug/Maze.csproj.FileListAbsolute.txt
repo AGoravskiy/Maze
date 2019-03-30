@@ -5,3 +5,9 @@ E:\EPAM\Maze\bin\Debug\Maze.exe
 E:\EPAM\Maze\bin\Debug\Maze.pdb
 E:\EPAM\Maze\obj\Debug\Maze.exe
 E:\EPAM\Maze\obj\Debug\Maze.pdb
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.exe.config
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.exe
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.pdb
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.csproj.CoreCompileInputs.cache
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.exe
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.pdb

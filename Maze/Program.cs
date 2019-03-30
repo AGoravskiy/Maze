@@ -10,35 +10,47 @@ namespace Maze
     {
         static void Main(string[] args)
         {
-            int height = 11;
-            int width = 31;
-            
-            string[,] maze = new string[height, width];
-
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    if ((i % 2 != 0 && j % 2 != 0) && //если ячейка нечетная по x и y, 
-                        (i < height - 1 && j < width - 1))
-                    {  //и при этом нах одится в пределах стен лабиринта
-                        maze[i, j] = ".";
-                    }       //то это КЛЕТКА
-                    else { maze[i, j] = "#"; }          //в остальных случаях это СТЕНА.
-                }
-            }
-
             var generator = new MazeGenerator();
-            maze = generator.GetMaze(maze);
+            var maze = generator.GetMaze();
+            var hero = Hero.GetHero;
 
-            for (int i = 0; i < height; i++)
+            //for (int y = 0; y < maze.Height; y++)
+            //{
+            //    Console.WriteLine();
+            //    for (int x = 0; x < maze.Width; x++)
+            //    {
+            //        var currentCell = maze.Cells.SingleOrDefault(cell => cell.X == x && cell.Y == y);
+
+            //        if (hero.X == x && hero.Y == y)
+            //        {
+            //            Console.Write(hero.Symbol);
+            //        }
+            //        else
+            //        {
+            //            Console.Write(currentCell.Symbol);
+            //        }
+            //    }
+            //}
+            //Console.WriteLine();
+
+            for (int x = 0; x < maze.Width; x++)
             {
-                for (int j = 0; j < width; j++)
-                {
-                    Console.Write( maze[i,j]);       //в остальных случаях это СТЕНА.
-                }
                 Console.WriteLine();
+                for (int y = 0; y < maze.Height; y++)
+                {
+                    var currentCell = maze.Cells.SingleOrDefault(cell => cell.X == x && cell.Y == y);
+
+                    if (hero.X == x && hero.Y == y)
+                    {
+                        Console.Write(hero.Symbol);
+                    }
+                    else
+                    {
+                        Console.Write(currentCell.Symbol);
+                    }
+                }
             }
+            Console.WriteLine();
         }
     }
 }
