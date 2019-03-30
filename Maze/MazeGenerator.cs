@@ -77,18 +77,18 @@ namespace Maze
             AnyCell dw = maze.Cells.SingleOrDefault(cell => (cell.X == x) && (cell.Y == y + distance));
             AnyCell lt = maze.Cells.SingleOrDefault(cell => (cell.X == x - distance) && (cell.Y == y));
 
-            AnyCell[] d = new AnyCell[] { dw, rt, up, lt };
+            AnyCell[] neighbours = new AnyCell[] { dw, rt, up, lt };
             List<AnyCell> cells = new List<AnyCell>();
 
-            for (i = 0; i < d.Length; i++)
+            for (i = 0; i < neighbours.Length; i++)
             {
                 
-                if (d[i] != null)
+                if (neighbours[i] != null)
                 { 
                     AnyCell mazeCellCurrent = maze.Cells.SingleOrDefault(cell 
-                        => (cell.X == d[i].X) && (cell.Y == d[i].Y));
-                    AnyCell cellCurrent = d[i];
-                    if (mazeCellCurrent.Symbol != '#' && !d[i].Visited)
+                        => (cell.X == neighbours[i].X) && (cell.Y == neighbours[i].Y));
+                    AnyCell cellCurrent = neighbours[i];
+                    if (mazeCellCurrent.Symbol != '#' && !neighbours[i].Visited)
                     {
                         cells.Add(cellCurrent);
                     }
