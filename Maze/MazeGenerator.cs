@@ -44,6 +44,7 @@ namespace Maze
                     neighbourCell = neighbours[random.Next(0, neighbours.Count)];
                     stackCells.Push(currentCell);
                     maze = RemoveWall(currentCell, neighbourCell, maze);
+                    startCell = neighbourCell;
                     currentCell = neighbourCell;
                     neighbourCell.Visited = true;
                 }

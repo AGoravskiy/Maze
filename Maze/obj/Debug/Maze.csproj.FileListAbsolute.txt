@@ -11,3 +11,4 @@ E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.pdb
 E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.csproj.CoreCompileInputs.cache
 E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.exe
 E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.pdb
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.csprojAssemblyReference.cache
