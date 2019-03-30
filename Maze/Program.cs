@@ -14,6 +14,20 @@ namespace Maze
             var maze = generator.GetMaze();
 
             Drawer.Draw(maze);
+            ConsoleKeyInfo key;
+            do
+            {
+
+                key = Console.ReadKey();
+                if (key.Key == ConsoleKey.R)
+                {
+                    maze = generator.GetMaze();
+                    Drawer.Draw(maze);
+                }
+            }
+            while (key.Key != ConsoleKey.Escape);
+
+            Console.Read();
         }
     }
 }

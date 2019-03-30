@@ -11,7 +11,7 @@ namespace Maze
         public static void Draw(Maze maze)
         {
             Console.Clear();
-
+            Console.WriteLine($"Press R to restart");
             var hero = Hero.GetHero;
 
             for (int x = 0; x < maze.Width; x++)
@@ -31,7 +31,9 @@ namespace Maze
                     }
                 }
             }
+            
             Console.WriteLine();
+            Console.WriteLine($"Press Esc to exit");
         }
         
     }

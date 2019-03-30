@@ -19,7 +19,7 @@ namespace Maze
         private Stack<AnyCell> stackCells = new Stack<AnyCell>();
         private static Random random = new Random();
 
-        public MazeGenerator() : this(11, 21)
+        public MazeGenerator() : this(9, 13)
         {
         }
 
