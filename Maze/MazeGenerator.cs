@@ -68,19 +68,16 @@ namespace Maze
 
         private List<AnyCell> GetNeighbours(Maze maze, AnyCell c, int distance)
         {
-            int i;
-            int x = c.X;
-            int y = c.Y;
 
-            AnyCell up = maze.Cells.SingleOrDefault(cell => (cell.X == x) && (cell.Y == y - distance));
-            AnyCell rt = maze.Cells.SingleOrDefault(cell => (cell.X == x + distance) && (cell.Y == y));
-            AnyCell dw = maze.Cells.SingleOrDefault(cell => (cell.X == x) && (cell.Y == y + distance));
-            AnyCell lt = maze.Cells.SingleOrDefault(cell => (cell.X == x - distance) && (cell.Y == y));
+            AnyCell up = maze.Cells.SingleOrDefault(cell => (cell.X == c.X) && (cell.Y == c.Y - distance));
+            AnyCell rt = maze.Cells.SingleOrDefault(cell => (cell.X == c.X + distance) && (cell.Y == c.Y));
+            AnyCell dw = maze.Cells.SingleOrDefault(cell => (cell.X == c.X) && (cell.Y == c.Y + distance));
+            AnyCell lt = maze.Cells.SingleOrDefault(cell => (cell.X == c.X - distance) && (cell.Y == c.Y));
 
             AnyCell[] neighbours = new AnyCell[] { dw, rt, up, lt };
             List<AnyCell> cells = new List<AnyCell>();
 
-            for (i = 0; i < neighbours.Length; i++)
+            for (int i = 0; i < neighbours.Length; i++)
             {
                 
                 if (neighbours[i] != null)
@@ -88,7 +85,7 @@ namespace Maze
                     AnyCell mazeCellCurrent = maze.Cells.SingleOrDefault(cell 
                         => (cell.X == neighbours[i].X) && (cell.Y == neighbours[i].Y));
                     AnyCell cellCurrent = neighbours[i];
-                    if (mazeCellCurrent.Symbol != '#' && !neighbours[i].Visited)
+                    if (!neighbours[i].Visited)
                     {
                         cells.Add(cellCurrent);
                     }
@@ -106,11 +103,11 @@ namespace Maze
 
             addX = (xDiff != 0) ? (xDiff / Math.Abs(xDiff)) : 0;
             addY = (yDiff != 0) ? (yDiff / Math.Abs(yDiff)) : 0;
-            AnyCell target = maze.Cells.SingleOrDefault(cell
+            AnyCell cellToRemove = maze.Cells.SingleOrDefault(cell
                         => (cell.X == first.X + addX) && (cell.Y == first.Y + addY));
-            AnyCell cellWall = target;
-            cellWall = new Ground(target.X, target.Y);
-            maze.Cells.Remove(target);
+            AnyCell cellWall = cellToRemove;
+            cellWall = new Ground(cellToRemove.X, cellToRemove.Y);
+            maze.Cells.Remove(cellToRemove);
             maze.Cells.Add(cellWall);
             cellWall.Visited = true;
             return maze;
