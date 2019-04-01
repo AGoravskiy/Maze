@@ -9,5 +9,12 @@ namespace Maze.Model.Cell
     class Coin : AnyCell
     {
         public Coin(int x, int y) : base(x, y, 'c') { }
+
+        public override bool TryToStep(Maze maze)
+        {
+            Hero.GetHero.Money++;
+            maze[X, Y] = new Ground(X, Y);
+            return true;
+        }
     }
 }

@@ -9,5 +9,10 @@ namespace Maze.Model.Cell
     class Ground : AnyCell
     {
         public Ground(int x, int y) : base(x, y, '.') { }
+
+        public override bool TryToStep(Maze maze)
+        {
+            return true;
+        }
     }
 }

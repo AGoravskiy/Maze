@@ -24,5 +24,10 @@ namespace Maze
         }
 
         private Hero() : base(1, 1, 'x') { }
+
+        public override bool TryToStep(Maze maze)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

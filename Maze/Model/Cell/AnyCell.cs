@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Maze
 {
-    public class AnyCell
+    public abstract class AnyCell
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -20,5 +20,7 @@ namespace Maze
             Symbol = symbol;
             Visited = visited;
         }
+
+        public abstract bool TryToStep(Maze maze);
     }
 }

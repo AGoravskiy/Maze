@@ -49,6 +49,7 @@
     <Compile Include="Model\Cell\AnyCell.cs" />
     <Compile Include="Model\Cell\Ground.cs" />
     <Compile Include="Model\Cell\Hero.cs" />
+    <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\Maze.cs" />
     <Compile Include="MazeGenerator.cs" />
     <Compile Include="Program.cs" />
