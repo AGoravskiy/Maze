@@ -8,7 +8,9 @@ namespace Maze
 {
     public class Wall : AnyCell
     {
-        public Wall(int x, int y) : base(x, y, '#') { }
+        public const ConsoleColor WallColor = ConsoleColor.DarkGreen;
+
+        public Wall(int x, int y) : base(x, y, '#', WallColor) { }
 
         public override bool TryToStep(Maze maze)
         {

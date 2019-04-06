@@ -40,7 +40,6 @@ namespace Maze
             }
         }
 
-
         public Maze(int width, int height)
         {
             Width = width;
@@ -51,7 +50,7 @@ namespace Maze
                 for (int y = 0; y < height; y++)
                 {
                     if ((y % 2 != 0 && x % 2 != 0) &&
-                        (y < height - 1 && x < width - 1))
+                        (y < height - 1 && x < width - 1)) 
                     {
                         var cell = new Ground(x, y);
                         Cells.Add(cell);

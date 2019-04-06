@@ -8,7 +8,9 @@ namespace Maze.Model.Cell
 {
     class Coin : AnyCell
     {
-        public Coin(int x, int y) : base(x, y, 'c') { }
+        public const ConsoleColor CoinColor = ConsoleColor.Yellow;
+
+        public Coin(int x, int y) : base(x, y, 'c', CoinColor) { }
 
         public override bool TryToStep(Maze maze)
         {

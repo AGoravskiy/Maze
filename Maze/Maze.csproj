@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Cell\Coin.cs" />
+    <Compile Include="Model\Cell\FinishCell.cs" />
+    <Compile Include="Model\Cell\StartCell.cs" />
     <Compile Include="Model\Cell\Wall.cs" />
     <Compile Include="Drawer.cs" />
     <Compile Include="Model\Cell\AnyCell.cs" />

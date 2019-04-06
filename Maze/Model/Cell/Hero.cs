@@ -8,6 +8,7 @@ namespace Maze
 {
     public class Hero : AnyCell
     {
+        //public const ConsoleColor HeroColor = ConsoleColor.Red;
         public int Money { get; set; }
 
         private static Hero hero;

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Maze.Model.Cell
 {
-    class Ground : AnyCell
+    class StartCell : AnyCell
     {
-        public const ConsoleColor GroundColor = ConsoleColor.DarkYellow;
-
-        public Ground(int x, int y) : base(x, y, '.', GroundColor) { }
+        public StartCell(int x = 1, int y = 1) : base(x, y, '>') { }
 
         public override bool TryToStep(Maze maze)
         {

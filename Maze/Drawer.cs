@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Maze.Model.Cell;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,15 @@ namespace Maze
         public static void Draw(Maze maze)
         {
             Console.Clear();
-            Console.WriteLine($"Press R to restart");
+
             var hero = Hero.GetHero;
+            Console.WriteLine($"Press R to restart");
+
+            var oldColor = Console.ForegroundColor;
+            Console.ForegroundColor = Coin.CoinColor;
+            Console.ForegroundColor = oldColor;
+            Console.WriteLine($"Coins: {hero.Money}");
+            
 
             for (int x = 0; x < maze.Width; x++)
             {
@@ -27,7 +35,10 @@ namespace Maze
                     }
                     else
                     {
+                        oldColor = Console.ForegroundColor;
+                        Console.ForegroundColor = currentCell.CellColor ?? oldColor;
                         Console.Write(currentCell.Symbol);
+                        Console.ForegroundColor = oldColor;
                     }
                 }
             }
