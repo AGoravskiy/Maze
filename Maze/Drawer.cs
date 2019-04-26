@@ -1,11 +1,12 @@
-﻿using Maze.Model.Cell;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MazeCore;
+using MazeCore.Model.Cell;
 
-namespace Maze
+namespace GameMaze
 {
     class Drawer
     {
@@ -20,6 +21,7 @@ namespace Maze
             Console.ForegroundColor = Coin.CoinColor;
             Console.ForegroundColor = oldColor;
             Console.WriteLine($"Coins: {hero.Money}");
+            Console.WriteLine(maze.DescLastAction);
             
 
             for (int x = 0; x < maze.Width; x++)

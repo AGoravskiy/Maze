@@ -1,0 +1,13 @@
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\GameMaze.csprojAssemblyReference.cache
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\GameMaze.csproj.CoreCompileInputs.cache
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.exe.config
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.exe
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\Maze.pdb
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\MazeCore.dll
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\MazeCore.pdb
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\GameMaze.csproj.CopyComplete
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.exe
+E:\EPAM\MazeEpamLab\Maze\obj\Debug\Maze.pdb
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\nunit.framework.dll
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\nunit.framework.pdb
+E:\EPAM\MazeEpamLab\Maze\bin\Debug\nunit.framework.xml

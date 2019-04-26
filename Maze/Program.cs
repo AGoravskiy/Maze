@@ -1,11 +1,12 @@
-﻿using Maze.Model;
+﻿using MazeCore;
+using MazeCore.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maze
+namespace GameMaze
 {
     class Program
     {

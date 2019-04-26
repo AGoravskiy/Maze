@@ -1,0 +1,9 @@
+E:\EPAM\MazeEpamLab\MazeCore\bin\Debug\MazeCore.dll
+E:\EPAM\MazeEpamLab\MazeCore\bin\Debug\MazeCore.pdb
+E:\EPAM\MazeEpamLab\MazeCore\obj\Debug\MazeCore.csproj.CoreCompileInputs.cache
+E:\EPAM\MazeEpamLab\MazeCore\obj\Debug\MazeCore.dll
+E:\EPAM\MazeEpamLab\MazeCore\obj\Debug\MazeCore.pdb
+E:\EPAM\MazeEpamLab\MazeCore\bin\Debug\nunit.framework.dll
+E:\EPAM\MazeEpamLab\MazeCore\bin\Debug\nunit.framework.pdb
+E:\EPAM\MazeEpamLab\MazeCore\bin\Debug\nunit.framework.xml
+E:\EPAM\MazeEpamLab\MazeCore\obj\Debug\MazeCore.csproj.CopyComplete
